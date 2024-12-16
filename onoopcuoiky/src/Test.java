@@ -23,7 +23,8 @@ public class Test {
             System.out.println("2.Edit employee.");
             System.out.println("3.Search employee.");
             System.out.println("4.Get total salary.");
-            System.out.println("5.Exit");
+            System.out.println("5.All employee information.");
+            System.out.println("6.Exit");
             System.out.print("Enter your choice: ");
             int choice = sc.nextInt();
             sc.nextLine();
@@ -46,6 +47,9 @@ public class Test {
                     System.out.println(employeeManager.getTotalSalary());
                     break;
                 case 5:
+                    employeeManager.display();
+                    break;
+                case 6:
                     System.out.println("Exiting the program!");
                     sc.close();
                     System.exit(0);

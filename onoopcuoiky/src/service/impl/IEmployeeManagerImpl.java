@@ -18,8 +18,8 @@ public class IEmployeeManagerImpl implements IEmployeeManager {
     @Override
     public void addEmployee(Employee e) {
         boolean check = false;
-        for(Employee employee : employeesList) {
-            if(employee.getUser_id().equals(e.getUser_id())){
+        for (Employee employee : employeesList) {
+            if (employee.getUser_id().equals(e.getUser_id())) {
                 System.out.println("Id is exist!");
                 return;
             }
@@ -27,12 +27,13 @@ public class IEmployeeManagerImpl implements IEmployeeManager {
         employeesList.add(e);
         System.out.println("Add succesfully!");
     }
+
     @Override
     public void editEmployee(Employee e) {
         boolean check = false;
         System.out.print("Enter id: ");
         String id = sc.nextLine();
-        for(Employee em : employeesList) {
+        for (Employee em : employeesList) {
             if (em.getUser_id().equals(id)) {
                 check = true;
                 System.out.println("This is " + em.getUser_fullname() + " information.");
@@ -54,9 +55,9 @@ public class IEmployeeManagerImpl implements IEmployeeManager {
                 System.out.print("Enter new department: ");
                 String department = sc.nextLine();
                 em.setEmployee_department(department);
-                }
             }
-        if(check = false){
+        }
+        if (check = false) {
             System.out.println("No information!");
         }
     }
@@ -64,13 +65,14 @@ public class IEmployeeManagerImpl implements IEmployeeManager {
     @Override
     public void searchEmployee(String fullName) {
         boolean found = false;
-        for(Employee e : employeesList) {
+        for (Employee e : employeesList) {
             if (fullName.equalsIgnoreCase(e.getUser_fullname())) {
                 found = true;
                 e.display();
+                return;
             }
         }
-        if(found = false) {
+        if (found = false) {
             System.out.println("No information!");
         }
     }
@@ -78,9 +80,16 @@ public class IEmployeeManagerImpl implements IEmployeeManager {
     @Override
     public float getTotalSalary() {
         float totalSalary = 0;
-        for(Employee e : employeesList){
+        for (Employee e : employeesList) {
             totalSalary += e.getSalary();
         }
         return totalSalary;
+    }
+
+    public void display() {
+        System.out.println("Danh sach nhan vien: ");
+        for (Employee e : employeesList) {
+            e.display();
+        }
     }
 }
