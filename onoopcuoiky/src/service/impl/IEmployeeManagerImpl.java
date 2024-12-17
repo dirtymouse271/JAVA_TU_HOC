@@ -17,7 +17,6 @@ public class IEmployeeManagerImpl implements IEmployeeManager {
 
     @Override
     public void addEmployee(Employee e) {
-        boolean check = false;
         for (Employee employee : employeesList) {
             if (employee.getUser_id().equals(e.getUser_id())) {
                 System.out.println("Id is exist!");
